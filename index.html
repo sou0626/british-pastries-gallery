@@ -125,6 +125,8 @@
             overflow: hidden;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
         }
 
         .pastry-card:hover {
@@ -140,6 +142,9 @@
 
         .pastry-card-body {
             padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .pastry-card-body h4 {
@@ -152,6 +157,88 @@
             font-size: 0.95em;
             color: var(--text-light);
             line-height: 1.6;
+            flex-grow: 1;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.95em;
+            transition: background-color 0.3s;
+            align-self: flex-start;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-color);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .close {
+            color: var(--primary-color);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: var(--accent-color);
+        }
+
+        .modal h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            margin-top: 0;
+        }
+
+        .recipe-ingredients,
+        .recipe-steps {
+            margin-bottom: 20px;
+        }
+
+        .recipe-ingredients h5,
+        .recipe-steps h5 {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+
+        .recipe-ingredients ul,
+        .recipe-steps ol {
+            margin-left: 20px;
+        }
+
+        .recipe-ingredients li,
+        .recipe-steps li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+            font-size: 0.95em;
         }
 
         .classification-table {
@@ -177,41 +264,6 @@
 
         .classification-table tr:hover {
             background-color: var(--light-bg);
-        }
-
-        .recipe-section {
-            background-color: var(--light-bg);
-            padding: 30px;
-            border-radius: 8px;
-            margin-top: 20px;
-        }
-
-        .recipe-section h4 {
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            font-size: 1.2em;
-        }
-
-        .recipe-ingredients,
-        .recipe-steps {
-            margin-bottom: 20px;
-        }
-
-        .recipe-ingredients h5,
-        .recipe-steps h5 {
-            color: var(--accent-color);
-            margin-bottom: 10px;
-        }
-
-        .recipe-ingredients ul,
-        .recipe-steps ol {
-            margin-left: 20px;
-        }
-
-        .recipe-ingredients li,
-        .recipe-steps li {
-            margin-bottom: 8px;
-            line-height: 1.6;
         }
 
         .columns-section {
@@ -287,6 +339,11 @@
             .pastry-grid {
                 grid-template-columns: 1fr;
             }
+
+            .modal-content {
+                width: 95%;
+                margin: 20% auto;
+            }
         }
     </style>
 </head>
@@ -331,6 +388,7 @@
                     <div class="pastry-card-body">
                         <h4>🥐 スコーン</h4>
                         <p>アフタヌーンティーに欠かせない、焼きたてのスコーン。クロテッドクリームとジャムを添えて食べるのが伝統です。素朴な味わいが特徴で、イギリスを代表する菓子の一つです。</p>
+                        <button class="btn" onclick="openRecipeModal('scones')">作り方</button>
                     </div>
                 </div>
 
@@ -340,6 +398,7 @@
                     <div class="pastry-card-body">
                         <h4>🍪 ショートブレッド</h4>
                         <p>バターをたっぷり使った、サクサクとした食感の焼き菓子。スコットランド発祥で、特にクリスマスの時期に食べられます。シンプルながら上品な味わいが人気です。</p>
+                        <button class="btn" onclick="openRecipeModal('shortbread')">作り方</button>
                     </div>
                 </div>
 
@@ -349,6 +408,7 @@
                     <div class="pastry-card-body">
                         <h4>🎂 ヴィクトリアサンドイッチケーキ</h4>
                         <p>ヴィクトリア女王が愛したとされる、ふんわりとしたスポンジケーキ。ジャムとクリームを挟んだ優雅なケーキで、アフタヌーンティーの定番です。</p>
+                        <button class="btn" onclick="openRecipeModal('victoria')">作り方</button>
                     </div>
                 </div>
 
@@ -358,6 +418,7 @@
                     <div class="pastry-card-body">
                         <h4>🥧 バノフィーパイ</h4>
                         <p>バナナとトフィーを組み合わせた、20世紀に生まれた比較的新しい菓子。ビスケットクラスト、キャラメル、バナナ、ホイップクリームの層が特徴です。</p>
+                        <button class="btn" onclick="openRecipeModal('banoffee')">作り方</button>
                     </div>
                 </div>
 
@@ -367,6 +428,7 @@
                     <div class="pastry-card-body">
                         <h4>🍰 トライフル</h4>
                         <p>スポンジケーキ、カスタードクリーム、フルーツ、ホイップクリームを層状に重ねたデザート。クリスマスの時期に特に人気があり、華やかな見た目が特徴です。</p>
+                        <button class="btn" onclick="openRecipeModal('trifle')">作り方</button>
                     </div>
                 </div>
 
@@ -376,6 +438,7 @@
                     <div class="pastry-card-body">
                         <h4>🥧 ミンスパイ</h4>
                         <p>ドライフルーツとスパイスを詰めたクリスマスの伝統菓子。小さなパイで、温かいまま食べるのが一般的です。クリスマスシーズンには欠かせない存在です。</p>
+                        <button class="btn" onclick="openRecipeModal('mincepie')">作り方</button>
                     </div>
                 </div>
             </div>
@@ -427,68 +490,6 @@
             </table>
         </section>
 
-        <!-- レシピセクション -->
-        <section id="recipes">
-            <h2>簡単レシピ</h2>
-
-            <!-- スコーンのレシピ -->
-            <div class="recipe-section">
-                <h4>🥐 スコーンの作り方</h4>
-                <div class="recipe-ingredients">
-                    <h5>材料（約12個分）</h5>
-                    <ul>
-                        <li>小麦粉: 250g</li>
-                        <li>バター: 60g（冷やしたもの、角切り）</li>
-                        <li>砂糖: 30g</li>
-                        <li>塩: ひとつまみ</li>
-                        <li>ベーキングパウダー: 小さじ2</li>
-                        <li>卵: 1個</li>
-                        <li>牛乳: 100ml</li>
-                        <li>バニラエッセンス: 小さじ1/2</li>
-                    </ul>
-                </div>
-                <div class="recipe-steps">
-                    <h5>作り方</h5>
-                    <ol>
-                        <li>小麦粉、ベーキングパウダー、砂糖、塩をボウルに入れて混ぜます。</li>
-                        <li>冷やしたバターを加えて、指でこすりながら粉状にします。</li>
-                        <li>卵と牛乳を混ぜ、バニラエッセンスを加えます。</li>
-                        <li>粉の混合物に液体を加えて、軽く混ぜ合わせます。</li>
-                        <li>生地を厚さ2cm程度に伸ばし、円形で抜きます。</li>
-                        <li>200℃のオーブンで15～20分焼きます。</li>
-                        <li>焼き上がったら、クロテッドクリームとジャムを添えて召し上がります。</li>
-                    </ol>
-                </div>
-            </div>
-
-            <!-- ショートブレッドのレシピ -->
-            <div class="recipe-section">
-                <h4>🍪 ショートブレッドの作り方</h4>
-                <div class="recipe-ingredients">
-                    <h5>材料（約20枚分）</h5>
-                    <ul>
-                        <li>バター: 200g（室温）</li>
-                        <li>砂糖: 50g</li>
-                        <li>小麦粉: 300g</li>
-                        <li>塩: ひとつまみ</li>
-                        <li>バニラエッセンス: 小さじ1/2</li>
-                    </ul>
-                </div>
-                <div class="recipe-steps">
-                    <h5>作り方</h5>
-                    <ol>
-                        <li>バターと砂糖をクリーム状になるまで混ぜます。</li>
-                        <li>バニラエッセンスを加えて混ぜます。</li>
-                        <li>小麦粉と塩をふるい入れ、軽く混ぜ合わせます。</li>
-                        <li>生地をまとめ、ラップに包んで冷蔵庫で30分冷やします。</li>
-                        <li>生地を厚さ5mm程度に伸ばし、好きな形で抜きます。</li>
-                        <li>180℃のオーブンで12～15分焼きます。</li>
-                        <li>焼き上がったら、冷ましてから召し上がります。</li>
-                    </ol>
-                </div>
-            </div>
-        </section>
-
         <!-- コラムセクション -->
         <section id="columns">
             <h2>コラム記事</h2>
@@ -509,6 +510,15 @@
         </section>
     </div>
 
+    <!-- レシピモーダル -->
+    <div id="recipeModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeRecipeModal()">&times;</span>
+            <h3 id="recipeTitle"></h3>
+            <div id="recipeContent"></div>
+        </div>
+    </div>
+
     <footer>
         <p>&copy; 2026 イギリス郷土菓子探訪 | All Rights Reserved</p>
         <div>
@@ -516,5 +526,203 @@
             <a href="contact.html">お問い合わせ</a>
         </div>
     </footer>
+
+    <script>
+        const recipes = {
+            scones: {
+                title: '🥐 スコーンの作り方',
+                content: `
+                    <div class="recipe-ingredients">
+                        <h5>材料（約12個分）</h5>
+                        <ul>
+                            <li>小麦粉: 250g</li>
+                            <li>バター: 60g（冷やしたもの、角切り）</li>
+                            <li>砂糖: 30g</li>
+                            <li>塩: ひとつまみ</li>
+                            <li>ベーキングパウダー: 小さじ2</li>
+                            <li>卵: 1個</li>
+                            <li>牛乳: 100ml</li>
+                            <li>バニラエッセンス: 小さじ1/2</li>
+                        </ul>
+                    </div>
+                    <div class="recipe-steps">
+                        <h5>作り方</h5>
+                        <ol>
+                            <li>小麦粉、ベーキングパウダー、砂糖、塩をボウルに入れて混ぜます。</li>
+                            <li>冷やしたバターを加えて、指でこすりながら粉状にします。</li>
+                            <li>卵と牛乳を混ぜ、バニラエッセンスを加えます。</li>
+                            <li>粉の混合物に液体を加えて、軽く混ぜ合わせます。</li>
+                            <li>生地を厚さ2cm程度に伸ばし、円形で抜きます。</li>
+                            <li>200℃のオーブンで15～20分焼きます。</li>
+                            <li>焼き上がったら、クロテッドクリームとジャムを添えて召し上がります。</li>
+                        </ol>
+                    </div>
+                `
+            },
+            shortbread: {
+                title: '🍪 ショートブレッドの作り方',
+                content: `
+                    <div class="recipe-ingredients">
+                        <h5>材料（約20枚分）</h5>
+                        <ul>
+                            <li>バター: 200g（室温）</li>
+                            <li>砂糖: 50g</li>
+                            <li>小麦粉: 300g</li>
+                            <li>塩: ひとつまみ</li>
+                            <li>バニラエッセンス: 小さじ1/2</li>
+                        </ul>
+                    </div>
+                    <div class="recipe-steps">
+                        <h5>作り方</h5>
+                        <ol>
+                            <li>バターと砂糖をクリーム状になるまで混ぜます。</li>
+                            <li>バニラエッセンスを加えて混ぜます。</li>
+                            <li>小麦粉と塩をふるい入れ、軽く混ぜ合わせます。</li>
+                            <li>生地をまとめ、ラップに包んで冷蔵庫で30分冷やします。</li>
+                            <li>生地を厚さ5mm程度に伸ばし、好きな形で抜きます。</li>
+                            <li>180℃のオーブンで12～15分焼きます。</li>
+                            <li>焼き上がったら、冷ましてから召し上がります。</li>
+                        </ol>
+                    </div>
+                `
+            },
+            victoria: {
+                title: '🎂 ヴィクトリアサンドイッチケーキの作り方',
+                content: `
+                    <div class="recipe-ingredients">
+                        <h5>材料</h5>
+                        <ul>
+                            <li>バター: 200g（室温）</li>
+                            <li>砂糖: 200g</li>
+                            <li>卵: 4個</li>
+                            <li>小麦粉: 200g</li>
+                            <li>ベーキングパウダー: 小さじ2</li>
+                            <li>バニラエッセンス: 小さじ1</li>
+                            <li>塩: ひとつまみ</li>
+                            <li>ジャム: 適量</li>
+                            <li>ホイップクリーム: 適量</li>
+                        </ul>
+                    </div>
+                    <div class="recipe-steps">
+                        <h5>作り方</h5>
+                        <ol>
+                            <li>バターと砂糖をクリーム状になるまで混ぜます。</li>
+                            <li>卵を1個ずつ加えて、よく混ぜます。</li>
+                            <li>小麦粉、ベーキングパウダー、塩をふるい入れます。</li>
+                            <li>バニラエッセンスを加えて、軽く混ぜ合わせます。</li>
+                            <li>生地を2つの丸型に流し入れます。</li>
+                            <li>180℃のオーブンで25～30分焼きます。</li>
+                            <li>冷めたら、1つの層にジャムとホイップクリームを塗り、もう1つの層をのせます。</li>
+                        </ol>
+                    </div>
+                `
+            },
+            banoffee: {
+                title: '🥧 バノフィーパイの作り方',
+                content: `
+                    <div class="recipe-ingredients">
+                        <h5>材料</h5>
+                        <ul>
+                            <li>ビスケット: 250g（砕いたもの）</li>
+                            <li>バター: 100g（溶かしたもの）</li>
+                            <li>練乳: 1缶（395g）</li>
+                            <li>バナナ: 3本</li>
+                            <li>ホイップクリーム: 300ml</li>
+                            <li>ココアパウダー: 適量</li>
+                        </ul>
+                    </div>
+                    <div class="recipe-steps">
+                        <h5>作り方</h5>
+                        <ol>
+                            <li>砕いたビスケットに溶かしたバターを混ぜます。</li>
+                            <li>パイ皿に敷き詰めて、冷蔵庫で冷やします。</li>
+                            <li>練乳を湯煎で温めるか、市販のキャラメルソースを使用します。</li>
+                            <li>冷えたクラストの上にキャラメルを流します。</li>
+                            <li>バナナをスライスして、キャラメルの上に並べます。</li>
+                            <li>ホイップクリームをバナナの上に塗ります。</li>
+                            <li>ココアパウダーを振りかけて完成です。</li>
+                        </ol>
+                    </div>
+                `
+            },
+            trifle: {
+                title: '🍰 トライフルの作り方',
+                content: `
+                    <div class="recipe-ingredients">
+                        <h5>材料</h5>
+                        <ul>
+                            <li>スポンジケーキ: 1個（角切り）</li>
+                            <li>シェリー酒またはジュース: 100ml</li>
+                            <li>カスタードクリーム: 500ml</li>
+                            <li>フルーツ（缶詰）: 400g</li>
+                            <li>ホイップクリーム: 300ml</li>
+                            <li>アーモンドスライス: 適量</li>
+                            <li>チェリー: 適量</li>
+                        </ul>
+                    </div>
+                    <div class="recipe-steps">
+                        <h5>作り方</h5>
+                        <ol>
+                            <li>大きなボウルまたはグラスにスポンジケーキを敷き詰めます。</li>
+                            <li>シェリー酒またはジュースをかけます。</li>
+                            <li>フルーツをのせます。</li>
+                            <li>カスタードクリームを流します。</li>
+                            <li>ホイップクリームを塗ります。</li>
+                            <li>アーモンドスライスとチェリーで飾ります。</li>
+                            <li>冷蔵庫で冷やしてから召し上がります。</li>
+                        </ol>
+                    </div>
+                `
+            },
+            mincepie: {
+                title: '🥧 ミンスパイの作り方',
+                content: `
+                    <div class="recipe-ingredients">
+                        <h5>材料（約12個分）</h5>
+                        <ul>
+                            <li>パイ生地: 400g</li>
+                            <li>ドライフルーツ（レーズン、カラント）: 200g</li>
+                            <li>リンゴ: 1個（みじん切り）</li>
+                            <li>バター: 50g</li>
+                            <li>砂糖: 50g</li>
+                            <li>シナモン: 小さじ1</li>
+                            <li>ナツメグ: 小さじ1/2</li>
+                            <li>卵: 1個（つや出し用）</li>
+                        </ul>
+                    </div>
+                    <div class="recipe-steps">
+                        <h5>作り方</h5>
+                        <ol>
+                            <li>ドライフルーツ、リンゴ、バター、砂糖、スパイスを混ぜてフィリングを作ります。</li>
+                            <li>パイ生地を薄く伸ばし、マフィン型に敷き詰めます。</li>
+                            <li>フィリングを詰めます。</li>
+                            <li>パイ生地で蓋をして、卵を塗ります。</li>
+                            <li>200℃のオーブンで15～20分焼きます。</li>
+                            <li>焼き上がったら、粉砂糖を振りかけます。</li>
+                        </ol>
+                    </div>
+                `
+            }
+        };
+
+        function openRecipeModal(recipeName) {
+            const modal = document.getElementById('recipeModal');
+            const recipe = recipes[recipeName];
+            document.getElementById('recipeTitle').innerHTML = recipe.title;
+            document.getElementById('recipeContent').innerHTML = recipe.content;
+            modal.style.display = 'block';
+        }
+
+        function closeRecipeModal() {
+            document.getElementById('recipeModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('recipeModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
