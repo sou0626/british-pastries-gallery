@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>イギリス郷土菓子探訪 | 歴史、伝統菓子、レシピを深く知る</title>
+    <meta name="description" content="イギリスの郷土菓子に特化した情報サイト。スコーン、ショートブレッド、ヴィクトリアサンドイッチケーキなど、歴史的背景、代表的な菓子、分類、レシピを通じてイギリス菓子の世界を探訪します。">
+    <meta name="keywords" content="イギリス菓子, 郷土菓子, スコーン, ショートブレッド, ヴィクトリアサンドイッチケーキ, アップルクランブル, トライフル, キャロットケーキ, バノフィーパイ, ファッジ, ミンスパイ, アフタヌーンティー, 伝統菓子, 焼き菓子, ケーキ, レシピ">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #8B4513; /* Saddle Brown */
+            --secondary-color: #D2B48C; /* Tan */
+            --accent-color: #DC143C; /* Crimson */
+            --light-bg: #FFF8DC; /* Cornsilk */
+            --text-dark: #333333;
+            --text-light: #666666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #FAFAFA;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        nav {
+            background-color: var(--primary-color);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: var(--accent-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--secondary-color);
+        }
+
+        section h3 {
+            font-size: 1.5em;
+            color: var(--primary-color);
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .history-content {
+            background-color: var(--light-bg);
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 5px solid var(--accent-color);
+        }
+
+        .pastry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .pastry-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .pastry-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .pastry-card-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .pastry-card-body {
+            padding: 20px;
+        }
+
+        .pastry-card-body h4 {
+            font-size: 1.3em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .pastry-card-body p {
+            font-size: 0.95em;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .classification-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .classification-table th,
+        .classification-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .classification-table th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: bold;
+        }
+
+        .classification-table tr:hover {
+            background-color: var(--light-bg);
+        }
+
+        .recipe-section {
+            background-color: var(--light-bg);
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .recipe-section h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .recipe-ingredients,
+        .recipe-steps {
+            margin-bottom: 20px;
+        }
+
+        .recipe-ingredients h5,
+        .recipe-steps h5 {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        .recipe-ingredients ul,
+        .recipe-steps ol {
+            margin-left: 20px;
+        }
+
+        .recipe-ingredients li,
+        .recipe-steps li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .columns-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .column-link {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-dark);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .column-link:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border-left-color: var(--accent-color);
+            transform: translateX(5px);
+        }
+
+        .column-link h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .column-link p {
+            font-size: 0.9em;
+            color: var(--text-light);
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .container {
+                padding: 20px 15px;
+            }
+
+            .pastry-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🇬🇧 イギリス郷土菓子探訪</h1>
+        <p>伝統と歴史が詰まった、イギリスの味わい</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#history">歴史</a></li>
+            <li><a href="#pastries">代表菓子</a></li>
+            <li><a href="#classification">分類</a></li>
+            <li><a href="#recipes">レシピ</a></li>
+            <li><a href="#columns">コラム</a></li>
+            <li><a href="column1.html">アフタヌーンティー</a></li>
+            <li><a href="column2.html">紅茶のペアリング</a></li>
+            <li><a href="column3.html">クロテッドクリーム</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- 歴史セクション -->
+        <section id="history">
+            <h2>イギリス菓子の歴史</h2>
+            <div class="history-content">
+                <h3>ローマ時代から現代まで</h3>
+                <p>イギリスの菓子文化は、ローマ時代の影響を受けながら、中世を通じて独自の発展を遂げてきました。特に19世紀のヴィクトリア朝時代には、アフタヌーンティーの習慣とともに、現在でも愛されている多くの伝統菓子が生まれました。</p>
+                <p>砂糖の輸入が増加した17世紀から18世紀にかけて、イギリスの上流階級の間で菓子作りが大流行し、複雑で豪華なデザートが作られるようになりました。一方、庶民の間では、地元の食材を使ったシンプルで素朴な菓子が愛され続けています。</p>
+                <p>現代でも、イギリス菓子は伝統を守りながらも、新しい解釈や工夫が加えられ、世界中で愛されています。</p>
+            </div>
+        </section>
+
+        <!-- 代表菓子セクション -->
+        <section id="pastries">
+            <h2>代表的なイギリス菓子</h2>
+            <div class="pastry-grid">
+                <!-- スコーン -->
+                <div class="pastry-card">
+                    <img src="images/scones.jpg" alt="スコーン" class="pastry-card-image">
+                    <div class="pastry-card-body">
+                        <h4>🥐 スコーン</h4>
+                        <p>アフタヌーンティーに欠かせない、焼きたてのスコーン。クロテッドクリームとジャムを添えて食べるのが伝統です。素朴な味わいが特徴で、イギリスを代表する菓子の一つです。</p>
+                    </div>
+                </div>
+
+                <!-- ショートブレッド -->
+                <div class="pastry-card">
+                    <img src="images/shortbread.jpg" alt="ショートブレッド" class="pastry-card-image">
+                    <div class="pastry-card-body">
+                        <h4>🍪 ショートブレッド</h4>
+                        <p>バターをたっぷり使った、サクサクとした食感の焼き菓子。スコットランド発祥で、特にクリスマスの時期に食べられます。シンプルながら上品な味わいが人気です。</p>
+                    </div>
+                </div>
+
+                <!-- ヴィクトリアサンドイッチケーキ -->
+                <div class="pastry-card">
+                    <img src="images/victoria_sponge.jpg" alt="ヴィクトリアサンドイッチケーキ" class="pastry-card-image">
+                    <div class="pastry-card-body">
+                        <h4>🎂 ヴィクトリアサンドイッチケーキ</h4>
+                        <p>ヴィクトリア女王が愛したとされる、ふんわりとしたスポンジケーキ。ジャムとクリームを挟んだ優雅なケーキで、アフタヌーンティーの定番です。</p>
+                    </div>
+                </div>
+
+                <!-- バノフィーパイ -->
+                <div class="pastry-card">
+                    <img src="images/banoffee_pie.jpg" alt="バノフィーパイ" class="pastry-card-image">
+                    <div class="pastry-card-body">
+                        <h4>🥧 バノフィーパイ</h4>
+                        <p>バナナとトフィーを組み合わせた、20世紀に生まれた比較的新しい菓子。ビスケットクラスト、キャラメル、バナナ、ホイップクリームの層が特徴です。</p>
+                    </div>
+                </div>
+
+                <!-- トライフル -->
+                <div class="pastry-card">
+                    <img src="images/trifle.jpg" alt="トライフル" class="pastry-card-image">
+                    <div class="pastry-card-body">
+                        <h4>🍰 トライフル</h4>
+                        <p>スポンジケーキ、カスタードクリーム、フルーツ、ホイップクリームを層状に重ねたデザート。クリスマスの時期に特に人気があり、華やかな見た目が特徴です。</p>
+                    </div>
+                </div>
+
+                <!-- ミンスパイ -->
+                <div class="pastry-card">
+                    <img src="images/mince_pie.jpg" alt="ミンスパイ" class="pastry-card-image">
+                    <div class="pastry-card-body">
+                        <h4>🥧 ミンスパイ</h4>
+                        <p>ドライフルーツとスパイスを詰めたクリスマスの伝統菓子。小さなパイで、温かいまま食べるのが一般的です。クリスマスシーズンには欠かせない存在です。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 分類セクション -->
+        <section id="classification">
+            <h2>イギリス菓子の分類</h2>
+            <table class="classification-table">
+                <thead>
+                    <tr>
+                        <th>カテゴリー</th>
+                        <th>特徴</th>
+                        <th>代表例</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>焼き菓子</td>
+                        <td>バターと小麦粉を主体とした焼き菓子。素朴で香ばしい味わい。</td>
+                        <td>スコーン、ショートブレッド、ジンジャーナッツ</td>
+                    </tr>
+                    <tr>
+                        <td>ケーキ</td>
+                        <td>卵をたっぷり使ったふんわりとしたケーキ。華やかな見た目が特徴。</td>
+                        <td>ヴィクトリアサンドイッチケーキ、キャロットケーキ</td>
+                    </tr>
+                    <tr>
+                        <td>プディング</td>
+                        <td>蒸したり焼いたりしたデザート。温かく食べることが多い。</td>
+                        <td>ライスプディング、ブレッドプディング</td>
+                    </tr>
+                    <tr>
+                        <td>パイ・タルト</td>
+                        <td>パイ生地やタルト生地を使用。フルーツやナッツを詰めることが多い。</td>
+                        <td>バノフィーパイ、ミンスパイ、アップルパイ</td>
+                    </tr>
+                    <tr>
+                        <td>トライフル・ムース</td>
+                        <td>層状に重ねたデザート。華やかで豪華な見た目。</td>
+                        <td>トライフル、パンナコッタ</td>
+                    </tr>
+                    <tr>
+                        <td>ティータイム菓子</td>
+                        <td>アフタヌーンティーで食べる小さな菓子。上品な味わい。</td>
+                        <td>フィンガーサンドイッチ、マカロン、ミニケーキ</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- レシピセクション -->
+        <section id="recipes">
+            <h2>簡単レシピ</h2>
+
+            <!-- スコーンのレシピ -->
+            <div class="recipe-section">
+                <h4>🥐 スコーンの作り方</h4>
+                <div class="recipe-ingredients">
+                    <h5>材料（約12個分）</h5>
+                    <ul>
+                        <li>小麦粉: 250g</li>
+                        <li>バター: 60g（冷やしたもの、角切り）</li>
+                        <li>砂糖: 30g</li>
+                        <li>塩: ひとつまみ</li>
+                        <li>ベーキングパウダー: 小さじ2</li>
+                        <li>卵: 1個</li>
+                        <li>牛乳: 100ml</li>
+                        <li>バニラエッセンス: 小さじ1/2</li>
+                    </ul>
+                </div>
+                <div class="recipe-steps">
+                    <h5>作り方</h5>
+                    <ol>
+                        <li>小麦粉、ベーキングパウダー、砂糖、塩をボウルに入れて混ぜます。</li>
+                        <li>冷やしたバターを加えて、指でこすりながら粉状にします。</li>
+                        <li>卵と牛乳を混ぜ、バニラエッセンスを加えます。</li>
+                        <li>粉の混合物に液体を加えて、軽く混ぜ合わせます。</li>
+                        <li>生地を厚さ2cm程度に伸ばし、円形で抜きます。</li>
+                        <li>200℃のオーブンで15～20分焼きます。</li>
+                        <li>焼き上がったら、クロテッドクリームとジャムを添えて召し上がります。</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- ショートブレッドのレシピ -->
+            <div class="recipe-section">
+                <h4>🍪 ショートブレッドの作り方</h4>
+                <div class="recipe-ingredients">
+                    <h5>材料（約20枚分）</h5>
+                    <ul>
+                        <li>バター: 200g（室温）</li>
+                        <li>砂糖: 50g</li>
+                        <li>小麦粉: 300g</li>
+                        <li>塩: ひとつまみ</li>
+                        <li>バニラエッセンス: 小さじ1/2</li>
+                    </ul>
+                </div>
+                <div class="recipe-steps">
+                    <h5>作り方</h5>
+                    <ol>
+                        <li>バターと砂糖をクリーム状になるまで混ぜます。</li>
+                        <li>バニラエッセンスを加えて混ぜます。</li>
+                        <li>小麦粉と塩をふるい入れ、軽く混ぜ合わせます。</li>
+                        <li>生地をまとめ、ラップに包んで冷蔵庫で30分冷やします。</li>
+                        <li>生地を厚さ5mm程度に伸ばし、好きな形で抜きます。</li>
+                        <li>180℃のオーブンで12～15分焼きます。</li>
+                        <li>焼き上がったら、冷ましてから召し上がります。</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- コラムセクション -->
+        <section id="columns">
+            <h2>コラム記事</h2>
+            <div class="columns-section">
+                <a href="column1.html" class="column-link">
+                    <h4>☕ アフタヌーンティーの歴史と文化</h4>
+                    <p>19世紀に始まったアフタヌーンティーの伝統。その誕生から現代での楽しみ方まで、イギリスの優雅な文化を深掘りします。</p>
+                </a>
+                <a href="column2.html" class="column-link">
+                    <h4>🍵 イギリス菓子と紅茶のペアリング</h4>
+                    <p>各菓子に合う紅茶の種類とペアリングのコツ。最高のティータイムを演出するための組み合わせを探求します。</p>
+                </a>
+                <a href="column3.html" class="column-link">
+                    <h4>🥛 クロテッドクリームの秘密</h4>
+                    <p>スコーンに欠かせないクロテッドクリーム。その製造方法、歴史、そして自宅での作り方を詳しく解説します。</p>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 イギリス郷土菓子探訪 | All Rights Reserved</p>
+        <div>
+            <a href="privacy.html">プライバシーポリシー</a>
+            <a href="contact.html">お問い合わせ</a>
+        </div>
+    </footer>
+</body>
+</html>

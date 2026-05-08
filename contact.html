@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ | イギリス郷土菓子探訪 - ご意見・ご要望はこちら</title>
+    <meta name="description" content="イギリス郷土菓子探訪サイトへのお問い合わせページです。ご意見、ご要望、ご質問などお気軽にお寄せください。Googleフォームの埋め込みを想定しています。">
+    <meta name="keywords" content="お問い合わせ, 連絡先, イギリス郷土菓子探訪, Googleフォーム, 質問, 意見, 要望">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #8B4513; /* Saddle Brown */
+            --secondary-color: #D2B48C; /* Tan */
+            --accent-color: #DC143C; /* Crimson */
+            --light-bg: #FFF8DC; /* Cornsilk */
+            --text-dark: #333333;
+            --text-light: #666666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: \'Noto Sans JP\', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #FAFAFA;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-family: \'Playfair Display\', serif;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        nav {
+            background-color: var(--primary-color);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: var(--accent-color);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-family: \'Playfair Display\', serif;
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--secondary-color);
+        }
+
+        h3 {
+            font-size: 1.5em;
+            color: var(--primary-color);
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin-bottom: 1em;
+        }
+
+        ul {
+            list-style: disc;
+            margin-left: 20px;
+            margin-bottom: 1em;
+        }
+
+        li {
+            margin-bottom: 0.5em;
+        }
+
+        .contact-form-container {
+            background-color: var(--light-bg);
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 5px solid var(--accent-color);
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .container {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>お問い合わせ</h1>
+        <p>ご意見、ご質問などお気軽にお寄せください</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html#history">歴史</a></li>
+            <li><a href="index.html#pastries">代表菓子</a></li>
+            <li><a href="index.html#classification">分類</a></li>
+            <li><a href="index.html#charts">データ</a></li>
+            <li><a href="index.html#recipes">レシピ</a></li>
+            <li><a href="index.html#columns">コラム</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2>お問い合わせフォーム</h2>
+        <p>当サイトに関するご意見、ご質問、ご要望などがございましたら、以下のフォームよりお気軽にお問い合わせください。</p>
+        <p>通常、3営業日以内にご返信させていただきます。</p>
+
+        <div class="contact-form-container">
+            <!-- ここにGoogleフォームなどの埋め込みコードを挿入してください -->
+            <p><strong>【Googleフォーム埋め込み例】</strong></p>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc_YOUR_FORM_ID/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+            <p style="font-size: 0.9em; color: var(--text-light); margin-top: 20px;">※上記はGoogleフォームの埋め込み例です。実際のフォームURLに置き換えてご使用ください。</p>
+        </div>
+
+        <h3>その他のお問い合わせ方法</h3>
+        <p>メールでの直接のお問い合わせも受け付けております。</p>
+        <ul>
+            <li>メールアドレス: <a href="mailto:info@britishpastries.example.com">info@britishpastries.example.com</a></li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 イギリス郷土菓子探訪 | All Rights Reserved</p>
+        <div>
+            <a href="privacy.html">プライバシーポリシー</a>
+            <a href="contact.html">お問い合わせ</a>
+        </div>
+    </footer>
+</body>
+</html>
