@@ -1,0 +1,14 @@
+{
+  "name": "british-pastries-gallery",
+  "version": "1.0.0",
+  "description": "British Pastries Gallery - イギリス郷土菓子探訪",
+  "scripts": {
+    "build": "echo 'No build step required for static HTML'"
+  },
+  "keywords": ["british", "pastries", "gallery"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@vercel/analytics": "^1.4.1"
+  }
+}

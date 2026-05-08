@@ -346,6 +346,10 @@
             }
         }
     </style>
+    <script type="module">
+        import { inject } from './scripts/analytics.mjs';
+        inject();
+    </script>
 </head>
 <body>
     <header>
@@ -401,7 +405,7 @@
                     <img src="images/scones.jpg" alt="スコーン" class="pastry-card-image">
                     <div class="pastry-card-body">
                         <h4>🥐 スコーン</h4>
-                        <p>アフタヌーンティーに欠かせない、焼きたてのスコーン。クロテッドクリームとジャムを添えて食べるのが伝統です。素朴な味わいが特徴で、イギリスを代表する菓子の一つです。</p>
+                        <p>アフタヌーンティーに欠かせない、焼きたてのスコーン。クロテッドクリームと��ャムを添えて食べるのが伝統です。素朴な味わいが特徴で、イギリスを代表する菓子の一つです。</p>
                         <button class="btn" onclick="openRecipeModal('scones')">作り方</button>
                     </div>
                 </div>
